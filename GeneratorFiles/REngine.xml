@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<class>
+
+    <namespace>NVL_App</namespace>
+    <solution>RefinerLib</solution>
+    <name>REngine</name>
+    <description>A refiner engine based on the Gauss Newton approach</description>
+
+    <includes>
+        <include name="iostream" namespace="std" local="false" />
+        <include name="opencv2/opencv.hpp" namespace="cv" local="false" />
+        <include name="PolyProblem.h" local="true" />
+    </includes>
+
+    <variables>
+        <variable type="RefinerProblem *" name="problem" code="10" />
+        <variable type="double" name="epsilon" code="10" />
+    </variables>
+
+    <constructors>
+
+        <constructor type="custom">
+            <parameter type="RefinerProblem *" name="problem" description="The problem that we are dealing with" />
+            <parameter type="double" name="epsilon" description="Definition the epsilon" />
+        </constructor>
+
+    </constructors>
+
+    <methods>
+
+        <!-- Retrieve the Jacobian -->
+        <method section="Find Jacobian" access="public" return="Mat" name="GetJacobian" description="Retrieve the jacobian" inline="false">
+            <parameter type="Mat&amp;" name="parameters" description="The parameters that we have the jacobian for" />
+            <parameter type="double" name="baseError" description="The base error we are calculating the Jacobian from" />
+            <parameter type="int" name="problemId" description="The problem we are getting the Jacobian from" />
+        </method>
+
+        <!-- Get Error -->
+        <method section="Get Error" access="public" return="Mat" name="GetError" description="The error that we are getting" inline="false">
+            <parameter type="Mat&amp;" name="parameters" description="The parameters that we are calculate variables" />
+        </method>
+
+        <!-- Iterator -->
+        <method section="Iterate" access="public" return="Mat" name="Iterator" description="Iterate a round of the refiner" inline="false">
+            <parameter type="Mat&amp;" name="parameters" description="The current set of pixels" />
+        </method>
+
+        <!-- Minimize -->
+        <method section="Minimize" access="public" return="double" name="Minimize" description="The fully minimization loop" inline="false">
+            <parameter type="Mat&amp;" name="parameters" description="The initial parameters to start minimizing from" />
+        </method>
+
+    </methods>
+
+    <tests>
+        <test name="error_calculation" description="verify the error calculation" exception="false" />
+        <test name="confirm_jacobian" description="Confirm the generation of the Jacobian" exception="false" />
+        <test name="test_iterate" description="A single iterate test" exception="false" />
+        <test name="test_full_minimize" description="Perform minimization" exception="false" />
+
+    </tests>
+
+</class>

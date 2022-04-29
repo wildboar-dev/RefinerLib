@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<class base="RefinerProblem">
+
+    <namespace>NVL_App</namespace>
+    <solution>RefinerLib</solution>
+    <name>PolyProblem</name>
+    <description>A template for a refiner problem</description>
+
+    <includes>
+        <include name="iostream" namespace="std" local="false" />
+        <include name="opencv2/opencv.hpp" namespace="std" local="false" />
+        <include name="RefinerProblem.h" local="true" />
+    </includes>
+
+    <methods>
+    
+        <!-- Error Calculation -->
+        <method section="Error Calculation" modifier="virtual" access="public" return="double" name="GetError" description="Calculate the error associated with a given problem" inline="false">
+            <parameter type="Mat&" name="params" description="The parameters that we are optimizing" />
+            <parameter type="int" name="problemId" description="The identifier of the problem that we are processing" />
+        </method>
+
+        <!-- Get Problem Count -->
+        <method section="Problem Count" modifier="virtual" access="public" return="int" name="GetProblemCount" description="Retrieve the number of problems" inline="false" />
+
+    </methods>
+
+</class>
