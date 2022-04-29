@@ -4,7 +4,7 @@ An implementation of Gauss-Newton Gradient Descent
 
 ## What is it?
 
-This is an attempt to implement a Gauss-Newton Gradient descent optimiser in C++. The Gauss-Newton algorithm is quite well-known and is documented (here)[https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm].
+This is an attempt to implement a Gauss-Newton Gradient descent optimiser in C++. The Gauss-Newton algorithm is quite well-known and is documented [here](https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm).
 
 ## Getting the code working
 
