@@ -30,7 +30,7 @@ namespace NVL_App
 		Mat GetJacobian(Mat& params, double baseError, int problemId);
 		Mat GetErrors(Mat& params);
 		Mat Iterate(Mat& params, Mat& errors);
-		Vec2d Minimize(Mat& params, int maxIterations = 1000, double minError = 1e-3);
+		Vec3d Minimize(Mat& params, int maxIterations = 1000, double minError = 1e-3);
 
 		Vec2d GetAveError(Mat& errors);
 

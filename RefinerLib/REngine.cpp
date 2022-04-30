@@ -116,18 +116,22 @@ Mat REngine::Iterate(Mat& parameters, Mat& errors)
  * @param minError The minimum error that indicates we are good enough
  * @return double Returns a double
  */
-Vec2d REngine::Minimize(Mat& parameters, int maxIterations, double minError)
+Vec3d REngine::Minimize(Mat& parameters, int maxIterations, double minError)
 {
 	auto error = Vec2d(1e6, 1e6);
+
+	auto iterationCount = 0;
 
 	for (auto i = 0; i < maxIterations; i++) 
 	{
 		Mat R = GetErrors(parameters);
 		error = GetAveError(R);	
+
 		if (error[0] < minError) break;
 		parameters = Iterate(parameters, R);
+		iterationCount++;
 	}
 
-	return error;
+	return Vec3d(error[0], error[1], iterationCount);
 }
 
