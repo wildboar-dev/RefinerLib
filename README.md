@@ -12,7 +12,7 @@ This algorithm was tested on Ubunto 20.04 with the "vanilla" version of OpenCV i
 
 ```
 sudo apt update
-sudo apt install libopendv-dev
+sudo apt install libopencv-dev
 ```
 
 It is also assumed the cmake and C++ are installed on the machine. 
